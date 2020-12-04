@@ -3,7 +3,6 @@ package day1
 import (
 	"bufio"
 	"errors"
-	"fmt"
 	"io"
 	"log"
 	"strconv"
@@ -25,12 +24,12 @@ func ExecuteSolution(input io.Reader) {
 	}
 	n1, n2, _ := findPair(arr, 2020)
 	resultPair := n1 * n2
-	fmt.Println("Pair - Matching pair numbers are " + strconv.Itoa(n1) + " & " + strconv.Itoa(n2))
-	fmt.Println("Pair - Result: " + strconv.Itoa(resultPair))
+	log.Println("Pair - Matching pair numbers are " + strconv.Itoa(n1) + " & " + strconv.Itoa(n2))
+	log.Println("Pair - Result: " + strconv.Itoa(resultPair))
 	n1, n2, n3, _ := findTruple(arr, 2020)
 	resultTruple := n1 * n2 * n3
-	fmt.Println("Truple - Matching pair numbers are " + strconv.Itoa(n1) + ", " + strconv.Itoa(n2) + " & " + strconv.Itoa(n3))
-	fmt.Println("Truple - Result: " + strconv.Itoa(resultTruple))
+	log.Println("Truple - Matching pair numbers are " + strconv.Itoa(n1) + ", " + strconv.Itoa(n2) + " & " + strconv.Itoa(n3))
+	log.Println("Truple - Result: " + strconv.Itoa(resultTruple))
 }
 
 func findPair(array []int, sumMatch int) (int, int, error) {

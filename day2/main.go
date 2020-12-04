@@ -2,8 +2,8 @@ package day2
 
 import (
 	"bufio"
-	"fmt"
 	"io"
+	"log"
 	"strconv"
 	"strings"
 )
@@ -54,8 +54,8 @@ func ExecuteSolution(input io.Reader) {
 			part2ValidCount++
 		}
 	}
-	fmt.Println("Total Valid (Part 1): " + strconv.Itoa(part1ValidCount))
-	fmt.Println("Total Valid (Part 2): " + strconv.Itoa(part2ValidCount))
+	log.Println("Total Valid (Part 1): " + strconv.Itoa(part1ValidCount))
+	log.Println("Total Valid (Part 2): " + strconv.Itoa(part2ValidCount))
 }
 
 func verifyPasswordValidityPart1(verifiable passwordForVerification) passwordResult {

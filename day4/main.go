@@ -2,8 +2,8 @@ package day4
 
 import (
 	"bufio"
-	"fmt"
 	"io"
+	"log"
 	"regexp"
 	"strconv"
 	"strings"
@@ -37,8 +37,8 @@ func ExecuteSolution(input io.Reader) {
 		}
 		passportPrinter(validatedPassport)
 	}
-	fmt.Println("Total Valid Passports (V1): " + strconv.Itoa(validPassportsV1))
-	fmt.Println("Total Valid Passports (V2): " + strconv.Itoa(validPassportsV2))
+	log.Println("Total Valid Passports (V1): " + strconv.Itoa(validPassportsV1))
+	log.Println("Total Valid Passports (V2): " + strconv.Itoa(validPassportsV2))
 }
 
 func parsePassport(input io.Reader) []passport {
@@ -171,5 +171,5 @@ func ValidatePassportNumber(passport passport) bool {
 }
 
 func passportPrinter(passport passport) {
-	fmt.Println("byr: " + passport.byr + " iyr: " + passport.iyr + " eyr: " + passport.eyr + " hgt: " + passport.hcl + " hcl: " + passport.hgt + " ecl: " + passport.ecl + " pid: " + passport.pid + " cid: " + passport.cid + " validV1: " + strconv.FormatBool(passport.validV1) + " validV2: " + strconv.FormatBool(passport.validV2))
+	log.Println("byr: " + passport.byr + " iyr: " + passport.iyr + " eyr: " + passport.eyr + " hgt: " + passport.hcl + " hcl: " + passport.hgt + " ecl: " + passport.ecl + " pid: " + passport.pid + " cid: " + passport.cid + " validV1: " + strconv.FormatBool(passport.validV1) + " validV2: " + strconv.FormatBool(passport.validV2))
 }

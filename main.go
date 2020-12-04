@@ -6,7 +6,6 @@ import (
 	"aoc2020/day3"
 	"aoc2020/day4"
 	"aoc2020/pkg/utils"
-	"fmt"
 	"io"
 	"log"
 	"os"
@@ -24,9 +23,10 @@ func main() {
 		inputFileLocation = string(os.Args[1])
 	}
 
-	fmt.Println("Using input file: " + inputFileLocation)
+	log.Println("Using input file: " + inputFileLocation)
 	file, err := os.Open(inputFileLocation)
 	if err != nil {
+		log.Println("I can't solve every problem... not yet anyway")
 		log.Fatal(err)
 	}
 
@@ -34,23 +34,25 @@ func main() {
 
 	cErr := file.Close()
 	if cErr != nil {
-		fmt.Println(cErr)
+		log.Fatal(cErr)
 	}
 }
 
 func FindSolution(day string, input io.Reader) {
 	switch day {
 	case "1":
-		fmt.Println("Day " + day)
+		log.Println("Day " + day)
 		day1.ExecuteSolution(input)
 	case "2":
-		fmt.Println("Day " + day)
+		log.Println("Day " + day)
 		day2.ExecuteSolution(input)
 	case "3":
-		fmt.Println("Day " + day)
+		log.Println("Day " + day)
 		day3.ExecuteSolution(input)
 	case "4":
-		fmt.Println("Day " + day)
+		log.Println("Day " + day)
 		day4.ExecuteSolution(input)
+	default:
+		log.Fatal("I can't solve every problem... not yet anyway")
 	}
 }

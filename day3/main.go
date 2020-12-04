@@ -2,8 +2,8 @@ package day3
 
 import (
 	"bufio"
-	"fmt"
 	"io"
+	"log"
 	"strconv"
 )
 
@@ -20,7 +20,7 @@ func ExecuteSolution(input io.Reader) {
 	}
 
 	part1 := obtainTrees("part 1", arr, 1, 3)
-	fmt.Println("Part 1: " + strconv.Itoa(part1))
+	log.Println("Part 1: " + strconv.Itoa(part1))
 
 	part21 := obtainTrees("part2.1", arr, 1, 1)
 	part22 := obtainTrees("part2.2", arr, 1, 3)
@@ -28,7 +28,7 @@ func ExecuteSolution(input io.Reader) {
 	part24 := obtainTrees("part2.4", arr, 1, 7)
 	part25 := obtainTrees("part2.5", arr, 2, 1)
 	part2 := part21 * part22 * part23 * part24 * part25
-	fmt.Println("Part 2: " + strconv.Itoa(part2))
+	log.Println("Part 2: " + strconv.Itoa(part2))
 }
 
 func obtainTrees(name string, course [][]rune, downSpeed int, rightSpeed int) int {
@@ -44,10 +44,10 @@ func obtainTrees(name string, course [][]rune, downSpeed int, rightSpeed int) in
 		if treePresent {
 			numberOfTrees++
 		}
-		fmt.Println("Course: " + name + " Y:" + strconv.Itoa(posY) + " X:" + strconv.Itoa(posX) + " V: " + value + " TreePresent: " + strconv.FormatBool(treePresent) + " TreeCount:" + strconv.Itoa(numberOfTrees))
+		log.Println("Course: " + name + " Y:" + strconv.Itoa(posY) + " X:" + strconv.Itoa(posX) + " V: " + value + " TreePresent: " + strconv.FormatBool(treePresent) + " TreeCount:" + strconv.Itoa(numberOfTrees))
 		i++
 	}
-	fmt.Println("Course " + name + " tree count:" + strconv.Itoa(numberOfTrees))
+	log.Println("Course " + name + " tree count:" + strconv.Itoa(numberOfTrees))
 	return numberOfTrees
 }
 
