@@ -1,8 +1,9 @@
 package main
 
 import (
-	day4 "aoc2020/day4"
-	utils "aoc2020/pkg/utils"
+	"aoc2020/day3"
+	"aoc2020/day4"
+	"aoc2020/pkg/utils"
 	"fmt"
 	"io"
 	"log"
@@ -37,6 +38,9 @@ func main() {
 func FindSolution(day string, input io.Reader) {
 	defer utils.TimeTrack(time.Now(), "Total execution")
 	switch day {
+	case "3":
+		fmt.Println("Day " + day)
+		day3.ExecuteSolution(input)
 	case "4":
 		fmt.Println("Day " + day)
 		day4.ExecuteSolution(input)

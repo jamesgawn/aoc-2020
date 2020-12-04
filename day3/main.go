@@ -1,21 +1,15 @@
-package main
+package day3
 
 import (
 	"bufio"
 	"fmt"
-	"log"
-	"os"
+	"io"
 	"strconv"
 )
 
-func main() {
+func ExecuteSolution(input io.Reader) {
 	arr := make([][]rune, 0)
-	file, err := os.Open("./input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(input)
 	for scanner.Scan() {
 		text := scanner.Text()
 		if len(text) != 0 {
@@ -35,11 +29,6 @@ func main() {
 	part25 := obtainTrees("part2.5", arr, 2, 1)
 	part2 := part21 * part22 * part23 * part24 * part25
 	fmt.Println("Part 2: " + strconv.Itoa(part2))
-
-	cErr := file.Close()
-	if cErr != nil {
-		fmt.Println(cErr)
-	}
 }
 
 func obtainTrees(name string, course [][]rune, downSpeed int, rightSpeed int) int {
