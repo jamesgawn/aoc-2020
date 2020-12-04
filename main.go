@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+	defer utils.TimeTrack(time.Now(), "Total execution")
 	day := "4"
 	if len(os.Args) > 1 {
 		day = string(os.Args[1])
@@ -36,7 +37,6 @@ func main() {
 }
 
 func FindSolution(day string, input io.Reader) {
-	defer utils.TimeTrack(time.Now(), "Total execution")
 	switch day {
 	case "3":
 		fmt.Println("Day " + day)

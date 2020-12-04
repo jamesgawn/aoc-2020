@@ -19,14 +19,14 @@ type passport struct {
 	cid string
 }
 
-type passportResult struct {
+type validatedPassportV1 struct {
 	passport
 	valid bool
 }
 
 func ExecuteSolution(input io.Reader) {
 	passports := ParsePassport(input)
-	validatedPassports := ValidatePassport(passports)
+	validatedPassports := ValidatePassportV1(passports)
 	validPassports := 0
 	for _, validatedPassport := range validatedPassports {
 		PassportPrinter(validatedPassport)
@@ -34,7 +34,7 @@ func ExecuteSolution(input io.Reader) {
 			validPassports++
 		}
 	}
-	fmt.Println("Total Valid Passports: " + strconv.Itoa(validPassports))
+	fmt.Println("Total Valid Passports (V1): " + strconv.Itoa(validPassports))
 }
 
 func ParsePassport(input io.Reader) []passport {
@@ -82,15 +82,15 @@ func ParsePassport(input io.Reader) []passport {
 	return passportArray
 }
 
-func ValidatePassport(passports []passport) []passportResult {
-	passportResults := make([]passportResult, 0)
+func ValidatePassportV1(passports []passport) []validatedPassportV1 {
+	passportResults := make([]validatedPassportV1, 0)
 	for _, passport := range passports {
 		valid := passport.byr != "" && passport.iyr != "" && passport.eyr != "" && passport.hgt != "" && passport.hcl != "" && passport.ecl != "" && passport.pid != ""
-		passportResults = append(passportResults, passportResult{passport, valid})
+		passportResults = append(passportResults, validatedPassportV1{passport, valid})
 	}
 	return passportResults
 }
 
-func PassportPrinter(passport passportResult) {
+func PassportPrinter(passport validatedPassportV1) {
 	fmt.Println("byr: " + passport.byr + " iyr: " + passport.iyr + " eyr: " + passport.eyr + " hgt: " + passport.hcl + " hcl: " + passport.hgt + " ecl: " + passport.ecl + " pid: " + passport.pid + " cid: " + passport.cid + " valid: " + strconv.FormatBool(passport.valid))
 }
