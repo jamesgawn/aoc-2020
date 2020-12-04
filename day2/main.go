@@ -1,9 +1,9 @@
-package main
+package day2
 
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"strconv"
 	"strings"
 )
@@ -20,9 +20,9 @@ type passwordResult struct {
 	valid bool
 }
 
-func main() {
+func ExecuteSolution(input io.Reader) {
+	scanner := bufio.NewScanner(input)
 	arr := make([]passwordForVerification, 0)
-	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		scanner.Scan()
 		text := scanner.Text()

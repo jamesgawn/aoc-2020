@@ -1,18 +1,18 @@
-package main
+package day1
 
 import (
 	"bufio"
 	"errors"
 	"fmt"
+	"io"
 	"log"
-	"os"
 	"strconv"
 	"time"
 )
 
-func main() {
+func ExecuteSolution(input io.Reader) {
+	scanner := bufio.NewScanner(input)
 	arr := make([]int, 0)
-	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		scanner.Scan()
 		text := scanner.Text()
