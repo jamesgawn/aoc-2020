@@ -45,3 +45,13 @@ func EqualsBool(t *testing.T, expected bool, actual bool) {
 		)
 	}
 }
+
+func EqualsInt(t *testing.T, expected int, actual int) {
+	if expected != actual {
+		t.Errorf(
+			"Expected %s, but got %s",
+			strconv.Itoa(expected),
+			strconv.Itoa(actual),
+		)
+	}
+}

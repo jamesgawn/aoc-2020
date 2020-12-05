@@ -5,6 +5,7 @@ import (
 	"aoc2020/day2"
 	"aoc2020/day3"
 	"aoc2020/day4"
+	"aoc2020/day5"
 	"aoc2020/pkg/utils"
 	"io"
 	"log"
@@ -52,6 +53,9 @@ func FindSolution(day string, input io.Reader) {
 	case "4":
 		log.Println("Day " + day)
 		day4.ExecuteSolution(input)
+	case "5":
+		log.Println("Day " + day)
+		day5.ExecuteSolution(input)
 	default:
 		log.Fatal("I can't solve every problem... not yet anyway")
 	}
