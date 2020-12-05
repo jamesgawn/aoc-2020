@@ -17,7 +17,6 @@ type seat struct {
 }
 
 func ExecuteSolution(input io.Reader) {
-	//seats := [127][8]seat{}
 	seats := make([]seat, 0)
 	largestSeatId := 0
 	scanner := bufio.NewScanner(input)
@@ -25,7 +24,6 @@ func ExecuteSolution(input io.Reader) {
 		text := scanner.Text()
 		seat, _ := parseSeat(text)
 		seats = append(seats, seat)
-		//seats[seat.row][seat.column] = seat
 		if seat.id > largestSeatId {
 			largestSeatId = seat.id
 		}
