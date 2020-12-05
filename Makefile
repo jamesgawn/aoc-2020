@@ -1,5 +1,5 @@
 build:
-	go build -o ./aoc2020 ./
+	go build -o ./bin/aoc2020 ./
 
 test:
 	go test ./...
