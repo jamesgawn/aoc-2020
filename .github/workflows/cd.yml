@@ -33,16 +33,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Get the version
-        id: tag
-        run: echo ::set-env name=versionNumber::$(echo $GITHUB_REF | cut -d / -f 3 | cut -c 2-)
+        id: tagName
+        run: echo ::set-output name=versionNumber::$(echo $GITHUB_REF | cut -d / -f 3 | cut -c 2-)
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.tag.outputs.tagName }}
-          release_name: Release ${{ steps.tag.outputs.tagName }}
+          tag_name: v${{ steps.tagName.outputs.versionNumber }}
+          release_name: Release ${{ steps.tagName.outputs.versionNumber }}
   uploadArtifacts:
     needs: [ release ]
     strategy:
