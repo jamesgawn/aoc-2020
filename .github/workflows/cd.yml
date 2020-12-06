@@ -56,6 +56,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: ${{ matrix.os }}-binary
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: Get Filename
         id: binaryFilename
         run: echo ::set-output name=binaryFilename::$(make buildName)
