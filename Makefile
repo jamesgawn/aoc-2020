@@ -8,5 +8,8 @@ build:
 buildWithArch:
 	go build -o $(FILENAME) ./
 
+buildName:
+	@echo $(FILENAME)
+
 test:
 	go test ./...
