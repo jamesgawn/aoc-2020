@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         go-version: [1.15.x]
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install Go
@@ -44,7 +44,7 @@ jobs:
           tag_name: v${{ steps.tagName.outputs.versionNumber }}
           release_name: Release ${{ steps.tagName.outputs.versionNumber }}
   uploadArtifacts:
-    needs: [ release ]
+    needs: [ ubuntu-latest, macos-latest, windows-latest ]
     strategy:
       matrix:
         os: [ ubuntu-latest ]
