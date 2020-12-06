@@ -71,3 +71,4 @@ jobs:
           upload_url: ${{ needs.release.outputs.uploadUrl }}
           asset_path: ${{ steps.binaryFileLocation.outputs.binaryFileLocation }}
           asset_name: ${{ steps.binaryFilename.outputs.binaryFilename }}
+          asset_content_type: application/octet-stream
