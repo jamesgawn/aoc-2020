@@ -7,7 +7,7 @@ build:
 	go build -o ./bin/aoc2020 ./
 
 buildWithArch:
-	go build -o $(FILELOCATION) ./
+	go build -o $(FILE_LOCATION) ./
 
 buildLocation:
 	@echo $(FILE_LOCATION)
