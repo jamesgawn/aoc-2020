@@ -1,12 +1,16 @@
 OS=$(shell go env GOOS)
 ARCH=$(shell go env GOARCH)
-FILENAME=./bin/aoc2020-$(OS)-$(ARCH)
+FILENAME=aoc2020-$(OS)-$(ARCH)
+FILE_LOCATION=./bin/$(FILENAME)
 
 build:
 	go build -o ./bin/aoc2020 ./
 
 buildWithArch:
-	go build -o $(FILENAME) ./
+	go build -o $(FILELOCATION) ./
+
+buildLocation:
+	@echo $(FILE_LOCATION)
 
 buildName:
 	@echo $(FILENAME)

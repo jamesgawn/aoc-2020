@@ -56,9 +56,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: ${{ matrix.os }}-binary
-      - name: Get the version
+      - name: Get Filename
         id: binaryFilename
         run: echo ::set-output name=binaryFilename::$(make buildName)
+      - name: Get File Location
+        id: binaryFileLocation
+        run: echo ::set-output name=binaryFileLocation::$(make buildLocation)
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -66,4 +69,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.uploadUrl }}
-          asset_path: ${{ steps.binaryFilename.outputs.binaryFilename }}
+          asset_path: ${{ steps.binaryFilename.outputs.binaryFileLocation }}
+          asset_name: ${{ steps.binaryFilename.outputs.binaryFilename }}
