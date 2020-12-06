@@ -69,5 +69,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.release.outputs.uploadUrl }}
-          asset_path: ${{ steps.binaryFilename.outputs.binaryFileLocation }}
+          asset_path: ${{ steps.binaryFileLocation.outputs.binaryFileLocation }}
           asset_name: ${{ steps.binaryFilename.outputs.binaryFilename }}
